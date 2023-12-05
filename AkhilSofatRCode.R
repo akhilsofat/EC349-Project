@@ -47,3 +47,6 @@ Sentiment_Count <- function(text, sentiment_words) {
 Combined_Data$positive_count <- sapply(Combined_Data$text, Sentiment_Count, sentiment_words = Positive_words)
 Combined_Data$negative_count <- sapply(Combined_Data$text, Sentiment_Count, sentiment_words = Negative_words)
 
+factors <- c('positive_count','negative_count','review_count','useful.y','funny.y','cool.y','fans','average_stars','compliment_hot','compliment_more','compliment_more','compliment_profile','compliment_cute','compliment_list','compliment_note','compliment_plain','compliment_cool','compliment_funny','compliment_writer','compliment_photos')
+
+
