@@ -15,3 +15,8 @@ library(tidyverse)
 library(caret)
 library(ggplot2)
 library(randomForest)
+
+#Load Small Data
+
+load(file="yelp_review_small.Rda")
+load(file="yelp_user_small.Rda")
