@@ -20,3 +20,8 @@ library(randomForest)
 
 load(file="yelp_review_small.Rda")
 load(file="yelp_user_small.Rda")
+
+#Load positive and negative words for sentiment analysis
+
+Positive_words <- readLines("/Users/akhil/Documents/Economics/EC349/EC349 Project/Positive Words.txt")
+Negative_words <- readLines("/Users/akhil/Documents/Economics/EC349/EC349 Project/Negative Words.txt")
