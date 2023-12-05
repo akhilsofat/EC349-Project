@@ -31,3 +31,14 @@ Negative_words <- readLines("/Users/akhil/Documents/Economics/EC349/EC349 Projec
 Combined_Data <- merge(review_data_small, user_data_small, by = "user_id")
 
 rm(review_data_small, user_data_small) #remove original datasets for memory functionality
+
+#Remove punctuation and special characters
+Combined_Data$text <- gsub("[[:punct:]]","",Combined_Data$text)
+Combined_Data$text <- gsub("[[:digit:]]","",Combined_Data$text)
+
+#Create a function to count the sentiment words, which splits strings into individual words for matching
+
+Sentiment_Count <- function(text, sentiment_words) {
+  words <- unlist(strsplit(text, "\\s+"))  
+  sum(words %in% sentiment_words)          
+}
