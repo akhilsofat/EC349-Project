@@ -25,3 +25,9 @@ load(file="yelp_user_small.Rda")
 
 Positive_words <- readLines("/Users/akhil/Documents/Economics/EC349/EC349 Project/Positive Words.txt")
 Negative_words <- readLines("/Users/akhil/Documents/Economics/EC349/EC349 Project/Negative Words.txt")
+
+#Create a combined dataset, merging by user id
+
+Combined_Data <- merge(review_data_small, user_data_small, by = "user_id")
+
+rm(review_data_small, user_data_small) #remove original datasets for memory functionality
