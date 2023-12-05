@@ -49,4 +49,18 @@ Combined_Data$negative_count <- sapply(Combined_Data$text, Sentiment_Count, sent
 
 factors <- c('positive_count','negative_count','review_count','useful.y','funny.y','cool.y','fans','average_stars','compliment_hot','compliment_more','compliment_more','compliment_profile','compliment_cute','compliment_list','compliment_note','compliment_plain','compliment_cool','compliment_funny','compliment_writer','compliment_photos')
 
+#Split the data into traning data, and test data consisting of 10000 observations
+
+set.seed(1)
+test_indices <- sample(1:nrow(Combined_Data), 10000)
+train_indices <- setdiff(1:nrow(Combined_Data), test_indices)
+
+train_data <- Combined_Data[train_indices, ]
+test_data <- Combined_Data[test_indices, ]
+
+#Convert the stars variable to a factor variable suitable for a Random Forest Classification Model
+
+train_data$stars <- as.factor(train_data$stars)
+test_data$stars <- as.factor(test_data$stars)
+
 
