@@ -42,3 +42,8 @@ Sentiment_Count <- function(text, sentiment_words) {
   words <- unlist(strsplit(text, "\\s+"))  
   sum(words %in% sentiment_words)          
 }
+
+# Add sentiment count columns to the dataframe
+Combined_Data$positive_count <- sapply(Combined_Data$text, Sentiment_Count, sentiment_words = Positive_words)
+Combined_Data$negative_count <- sapply(Combined_Data$text, Sentiment_Count, sentiment_words = Negative_words)
+
