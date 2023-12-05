@@ -63,4 +63,12 @@ test_data <- Combined_Data[test_indices, ]
 train_data$stars <- as.factor(train_data$stars)
 test_data$stars <- as.factor(test_data$stars)
 
+#Fit the Random Forest Classification Model over the training data
+
+RF_Model <- randomForest(stars ~ ., data = train_data, ntree = 100, nodesize = 10)
+
+#Predict the model for the test data
+
+RF_Predictions <- predict(RF_Model, newdata = test_data)
+
 
